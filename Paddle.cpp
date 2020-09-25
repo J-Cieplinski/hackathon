@@ -3,12 +3,17 @@
 
 Paddle::Paddle() {
     paddle_.setSize(size_);
-    paddle_.setPosition(windowWidth / 2, windowHeight / 2);
+    sf::Vector2f screenCenter{windowWidth / 2 - size_.x / 2, windowHeight - size_.y};
+    paddle_.setPosition(screenCenter);
     paddle_.setFillColor(sf::Color::Red);
 }
 
 void Paddle::move() {
-    paddle_.move(velocity_);  //something along those lines to move. Changing velocity vector (direction basically) through user input etc
+    if (sf::Keyboard::isKeyPressed(Keys::left)) {
+        paddle_.move(leftVelocity_);
+    } else if (sf::Keyboard::isKeyPressed(Keys::right)) {
+        paddle_.move(rightVelocity_);
+    }
 }
 
 void Paddle::update() {  //everything that changes in regards to paddle, moving, changing color, etc

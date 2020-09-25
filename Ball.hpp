@@ -11,7 +11,7 @@ public:
     void move();
 
 private:
-    sf::RectangleShape ball_;
+    sf::CircleShape ball_;
     sf::Vector2f velocity_{};
     sf::Vector2f position_{};
 };
