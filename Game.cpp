@@ -24,6 +24,7 @@ void Game::render() {
     for (const auto& obj : drawObjects_) {
         window_.draw(*obj);
     }
+    window_.display();
 }
 
 void Game::processWindowEvents() {
