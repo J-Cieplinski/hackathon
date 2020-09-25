@@ -9,7 +9,8 @@ int main() {
 
     for (int col = 0; col < blocksCol; col++) {
         for (int row = 0; row < blocksRow; row++) {
-            bricks.push_back(std::make_shared<Brick>((col * (blockWidth + 2)) + 3, (row * (blockHeight + 3)) + 100));
+            bricks.push_back(std::make_shared<Brick>((col * (blockWidth + spaceBetweenBlocks)) + spaceBetweenBlocks,
+                                                     (row * (blockHeight + spaceBetweenBlocks)) + spaceFromTop));
         }
     }
     auto brick = std::make_shared<Brick>(0, 0);

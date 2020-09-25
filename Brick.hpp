@@ -5,6 +5,8 @@
 
 constexpr float blockWidth{83.f};
 constexpr float blockHeight{30.f};
+constexpr int spaceBetweenBlocks{2};
+constexpr int spaceFromTop{100};
 constexpr int blocksCol{15};
 constexpr int blocksRow{5};
 
