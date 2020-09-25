@@ -6,5 +6,6 @@ constexpr size_t windowHeight = 720;
 
 constexpr float ballSpeed{8.f};
 constexpr int ballRadius{10};
+constexpr float paddleSpeed{7.f};
 
 #include "Entity.hpp"
