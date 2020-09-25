@@ -6,4 +6,5 @@ class Entity : public sf::Drawable, public sf::Transformable {
 public:
     virtual void update() = 0;
     virtual ~Entity() = default;
+    bool isDestroyed_{false};
 };

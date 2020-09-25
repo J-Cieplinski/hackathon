@@ -3,7 +3,6 @@
 
 Paddle::Paddle() {
     paddle_.setSize(paddleSize_);
-    paddlePosition_ = {windowWidth / 2 - paddleSize_.x / 2, windowHeight - paddleSize_.y};
     paddle_.setPosition(paddlePosition_);
     paddle_.setFillColor(sf::Color::Red);
 }
