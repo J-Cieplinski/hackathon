@@ -17,7 +17,9 @@ public:
 
 private:
     sf::RectangleShape paddle_;
-    sf::Vector2f velocity_{};
+    sf::Vector2f leftVelocity_{-1.5f, 0.f};
+    sf::Vector2f rightVelocity_{1.5f, 0.f};
+
     sf::Vector2f position_{};
-    sf::Vector2f size_{30.f, 30.f};
+    sf::Vector2f size_{120.f, 15.f};
 };
