@@ -1,8 +1,7 @@
 #include "Game.hpp"
 #include <algorithm>
 
-Game::Game()
-    : window_(sf::VideoMode(windowWidth, windowHeight), "HackathonArkanoid") {
+Game::Game() : window_(sf::VideoMode(windowWidth, windowHeight), "HackathonArkanoid") {
     window_.clear();
     window_.setFramerateLimit(60);
 }
@@ -12,6 +11,9 @@ void Game::run() {
         processWindowEvents();
         update();
         render();
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape)) {
+            break;
+        }
     }
 }
 

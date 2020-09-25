@@ -1,7 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include "Entity.hpp"
+#include "Headers.hpp"
 
 struct Keys {
     inline static auto left = sf::Keyboard::Left;
@@ -16,10 +16,13 @@ public:
     void move();
 
 private:
-    sf::RectangleShape paddle_;
-    sf::Vector2f leftVelocity_{-1.5f, 0.f};
-    sf::Vector2f rightVelocity_{1.5f, 0.f};
+    void moveLeft();
+    void moveRight();
 
-    sf::Vector2f position_{};
-    sf::Vector2f size_{120.f, 15.f};
+    sf::RectangleShape paddle_;
+    sf::Vector2f leftVelocity_{-paddleSpeed, 0.f};
+    sf::Vector2f rightVelocity_{paddleSpeed, 0.f};
+
+    sf::Vector2f paddlePosition_{};
+    sf::Vector2f paddleSize_{120.f, 15.f};
 };

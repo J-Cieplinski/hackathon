@@ -2,22 +2,46 @@
 #include "Headers.hpp"
 
 Paddle::Paddle() {
-    paddle_.setSize(size_);
-    sf::Vector2f screenCenter{windowWidth / 2 - size_.x / 2, windowHeight - size_.y};
-    paddle_.setPosition(screenCenter);
+    paddle_.setSize(paddleSize_);
+    paddlePosition_ = {windowWidth / 2 - paddleSize_.x / 2, windowHeight - paddleSize_.y};
+    paddle_.setPosition(paddlePosition_);
     paddle_.setFillColor(sf::Color::Red);
+}
+
+void Paddle::moveLeft() {
+    auto positionAfterMovement = paddlePosition_ + leftVelocity_;
+
+    if (positionAfterMovement.x < 0) {
+        paddlePosition_.x = 0;
+    } else {
+        paddlePosition_ += leftVelocity_;
+    }
+    paddle_.setPosition(paddlePosition_);
+}
+
+void Paddle::moveRight() {
+    auto positionAfterMovement = paddlePosition_ + rightVelocity_ + paddleSize_;
+
+    if (positionAfterMovement.x > windowWidth) {
+        paddlePosition_.x = windowWidth - paddleSize_.x;
+    } else {
+        paddlePosition_ += rightVelocity_;
+    }
+
+    paddle_.setPosition(paddlePosition_);
 }
 
 void Paddle::move() {
     if (sf::Keyboard::isKeyPressed(Keys::left)) {
-        paddle_.move(leftVelocity_);
+        moveLeft();
     } else if (sf::Keyboard::isKeyPressed(Keys::right)) {
-        paddle_.move(rightVelocity_);
+        moveRight();
     }
 }
 
 void Paddle::update() {  //everything that changes in regards to paddle, moving, changing color, etc
     move();
+    paddlePosition_ = paddle_.getPosition();
 }
 
 void Paddle::draw(sf::RenderTarget& target, sf::RenderStates states) const {

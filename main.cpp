@@ -1,4 +1,5 @@
 #include "Brick.hpp"
+#include "Ball.hpp"
 #include "Game.hpp"
 #include "Paddle.hpp"
 
@@ -13,11 +14,13 @@ int main() {
                                                      (row * (blockHeight + spaceBetweenBlocks)) + spaceFromTop));
         }
     }
-    auto brick = std::make_shared<Brick>(0, 0);
+    
     Game game;
     game.addDrawObject(paddle);
     for (auto brick : bricks) {
         game.addDrawObject(brick);
     }
+    auto ball = std::make_shared<Ball>();
+    game.addDrawObject(ball);
     game.run();
 }
