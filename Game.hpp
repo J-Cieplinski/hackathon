@@ -10,6 +10,7 @@ class Game {
 public:
     Game();
     void run();
+    void removeDestroyedBricks();
     void addDrawObject(const std::shared_ptr<Entity>& drawable);  //for now, maybe not pointer but pure reference?
 
 private:

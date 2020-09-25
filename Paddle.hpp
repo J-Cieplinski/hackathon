@@ -23,6 +23,6 @@ private:
     sf::Vector2f leftVelocity_{-paddleSpeed, 0.f};
     sf::Vector2f rightVelocity_{paddleSpeed, 0.f};
 
-    sf::Vector2f paddlePosition_{};
     sf::Vector2f paddleSize_{120.f, 15.f};
+    sf::Vector2f paddlePosition_{windowWidth / 2 - paddleSize_.x / 2, windowHeight - paddleSize_.y};
 };

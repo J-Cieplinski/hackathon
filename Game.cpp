@@ -1,7 +1,8 @@
 #include "Game.hpp"
 #include <algorithm>
 
-Game::Game() : window_(sf::VideoMode(windowWidth, windowHeight), "HackathonArkanoid") {
+Game::Game()
+    : window_(sf::VideoMode(windowWidth, windowHeight), "HackathonArkanoid") {
     window_.clear();
     window_.setFramerateLimit(60);
 }
@@ -43,6 +44,11 @@ void Game::processWindowEvents() {
     }
 }
 
+void Game::removeDestroyedBricks() {
+    drawObjects_.erase(std::remove_if(drawObjects_.begin(), drawObjects_.end(), [](const auto& el) { return el->isDestroyed_; }), drawObjects_.end());  //This doesn't free memory used by those bricks
+}
+
 void Game::update() {
+    removeDestroyedBricks();
     std::for_each(drawObjects_.cbegin(), drawObjects_.cend(), [](const auto& obj) { obj->update(); });
 }

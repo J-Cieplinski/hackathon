@@ -10,6 +10,10 @@ Brick::Brick(float pos_x, float pos_y) {
 void Brick::update() {  // everything that changes in regards to brick. Destroying, changing color etc.
 }
 
+void Brick::destroyBrick() {
+    isDestroyed_ = true;
+}
+
 void Brick::draw(sf::RenderTarget& target, sf::RenderStates states) const {
     states.transform *= getTransform();
     target.draw(brick_, states);
