@@ -61,11 +61,6 @@ void Game::update() {
     std::for_each(drawObjects_.cbegin(), drawObjects_.cend(), [](const auto& obj) { obj->update(); });
     testCollision(ball_, paddle_);
     testCollision(ball_, bricks);
-    if (ball_.get()->getBottom() >= windowHeight) {
-        ball_.get()->setPosition(sf::Vector2f(0, -100));
-
-        ball_.get()->getShape().setFillColor(sf::Color::White);
-    }
 }
 
 void Game::init() {

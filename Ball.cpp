@@ -19,7 +19,7 @@ void Ball::move() {
     if (getTop() < topBoundry) {
         reverseVelocityY();
     } else if (getBottom() > windowHeight) {
-        reverseVelocityY();
+        ball_.setPosition(windowWidth / 2, windowHeight / 2);
     }
 }
 
