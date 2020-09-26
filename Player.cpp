@@ -30,3 +30,7 @@ void Player::removeLives() {
         lives_--;
     }
 }
+
+int Player::getLives() {
+    return lives_;
+}

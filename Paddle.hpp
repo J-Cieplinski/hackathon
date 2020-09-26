@@ -13,7 +13,7 @@ public:
     Paddle();
     void update() override;
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
-    void move();
+    void move();  
     int getX();
     float getLeft();
     float getRight();
