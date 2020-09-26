@@ -5,7 +5,9 @@ We decided to recreate this game for Coders School Hackathon. It was created usi
 
 ### Authors:
 J-Cieplinski - https://github.com/J-Cieplinski/
+
 Kasperice - https://github.com/Kasperice/
+
 Pawellos - https://github.com/pawellos/
 
 ### How to run
