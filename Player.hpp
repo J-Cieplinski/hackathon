@@ -11,6 +11,7 @@ public:
     Player(int lives, int points);
     void addPoints();
     void removeLives();
+    int getLives();
 
 private:
     int lives_;

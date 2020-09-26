@@ -13,6 +13,7 @@ class Paddle;
 class Brick;
 class Player;
 class MainMenu;
+class GameOver;
 
 class Game {
 public:
@@ -33,11 +34,15 @@ private:
     std::shared_ptr<Paddle> paddle_;
     std::vector<std::shared_ptr<Brick>> bricks;
     std::shared_ptr<Player> player_;
+    std::shared_ptr<GameOver> gameOver_;
     sf::SoundBuffer bounceBuffer_;
     sf::SoundBuffer brickDestroyBuffer_;
     sf::Sound bounceSound_;
 
+    bool isGameOver_{false};
+
     void render();
     void update();
     void processWindowEvents();
+    void gameOver();
 };

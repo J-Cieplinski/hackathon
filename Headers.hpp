@@ -22,12 +22,15 @@ constexpr int playerLives = 3;
 constexpr int playerPoints = 0;
 
 constexpr int menuItems = 2;
+constexpr size_t gameOverX = 500;
+constexpr size_t gameOverY = 80;
 
 #include "Background.hpp"
 #include "Ball.hpp"
 #include "Brick.hpp"
 #include "Entity.hpp"
 #include "Game.hpp"
+#include "GameOver.hpp"
 #include "MainMenu.hpp"
 #include "Paddle.hpp"
 #include "Player.hpp"

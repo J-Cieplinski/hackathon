@@ -10,21 +10,21 @@ Game::Game() : window_(sf::VideoMode(windowWidth, windowHeight), "HackathonArkan
     paddle_ = std::make_shared<Paddle>();
     player_ = std::make_shared<Player>(playerLives, playerPoints);
     ball_ = std::make_shared<Ball>(player_);
+    gameOver_ = std::make_shared<GameOver>();
 
-    bounceBuffer_.loadFromFile("../assets/sounds/bounce.wav");
     bounceSound_.setBuffer(bounceBuffer_);
-
     brickDestroyBuffer_.loadFromFile("../assets/sounds/brickDestruction.wav");
 }
 
 void Game::run() {
     while (window_.isOpen()) {
         processWindowEvents();
-        update();
-        render();
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape)) {
-            window_.close();
+        if (!isGameOver_) {
+            update();
+        } else {
+            gameOver();
         }
+        render();
     }
 }
 
@@ -48,6 +48,10 @@ void Game::processWindowEvents() {
         case sf::Event::Closed:
             window_.close();
             break;
+        case sf::Event::KeyPressed:
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+                window_.close();
+            break;
         default:
             break;
         }
@@ -67,6 +71,14 @@ void Game::update() {
     std::for_each(drawObjects_.cbegin(), drawObjects_.cend(), [](const auto& obj) { obj->update(); });
     testCollision(ball_, paddle_);
     testCollision(ball_, bricks);
+    if (player_->getLives() <= 0) {
+        isGameOver_ = true;
+        addDrawObject(gameOver_);
+    }
+}
+
+void Game::gameOver() {
+    gameOver_->update();
 }
 
 void Game::init() {
