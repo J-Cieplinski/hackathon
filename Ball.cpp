@@ -1,7 +1,7 @@
 #include "Ball.hpp"
 
 Ball::Ball() {
-    ballTexture_.loadFromFile("../assets/Ball.png");
+    ballTexture_.loadFromFile("../assets/textures/Ball.png");
     ball_.setPosition(windowWidth / 2, windowHeight / 2);
     ball_.setRadius(ballRadius);
     ball_.setOrigin(10, 10);

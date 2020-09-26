@@ -2,7 +2,7 @@
 #include "Headers.hpp"
 
 Paddle::Paddle() {
-    paddleTexture_.loadFromFile("../assets/Paddle.png");
+    paddleTexture_.loadFromFile("../assets/textures/Paddle.png");
     paddle_.setSize(paddleSize_);
     paddle_.setPosition(paddlePosition_);
     paddle_.setTexture(&paddleTexture_);
