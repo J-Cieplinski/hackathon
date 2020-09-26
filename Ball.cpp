@@ -12,7 +12,7 @@ void Ball::move() {
 
     if (getLeft() < sidesBoundries) {
         reverseVelocityX();
-    } else if (getRight() > windowWidth -sidesBoundries) {
+    } else if (getRight() > windowWidth - sidesBoundries) {
         reverseVelocityX();
     }
 

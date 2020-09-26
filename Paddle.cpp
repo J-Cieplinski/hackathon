@@ -11,9 +11,9 @@ Paddle::Paddle() {
 void Paddle::move() {
     paddle_.move(velocity_);  // something along those lines to move. Changing velocity vector (direction basically)
                               // through collision etc
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left) && getLeft() > 0) {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left) && getLeft() > sidesBoundries) {
         velocity_.x = -paddleSpeed;
-    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right) && getRight() < windowWidth) {
+    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right) && getRight() < windowWidth - sidesBoundries) {
         velocity_.x = paddleSpeed;
     } else {
         velocity_.x = 0;
