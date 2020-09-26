@@ -10,6 +10,9 @@ Kasperice - https://github.com/Kasperice/
 
 Pawellos - https://github.com/pawellos/
 
+### Gameplay:
+link
+
 ### Screenshots:
 
 ![](screenshots/screen1.png)
