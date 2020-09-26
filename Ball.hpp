@@ -16,6 +16,13 @@ public:
     int getRight();
     int getTop();
     int getBottom();
+    float getVelocityX();
+    float getVelocityY();
+    void setVelocityX(float xSpeed);
+    void setVelocityY(float ySpeed);
+    void reverseVelocityX();
+    void reverseVelocityY();
+    const sf::CircleShape& getShape();
 
 private:
     sf::CircleShape ball_;

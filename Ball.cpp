@@ -11,15 +11,15 @@ void Ball::move() {
     ball_.move(velocity_);  // something along those lines to move. Changing velocity vector (direction basically)
                             // through collision etc
     if (getLeft() < 0) {
-        velocity_.x *= -1;
+        reverseVelocityX();
     } else if (getRight() > windowWidth) {
-        velocity_.x *= -1;
+        reverseVelocityX();
     }
 
     if (getTop() < 0) {
-        velocity_.y *= -1;
+        reverseVelocityY();
     } else if (getBottom() > windowHeight) {
-        velocity_.y *= -1;
+        reverseVelocityY();
     }
 }
 
@@ -35,18 +35,51 @@ void Ball::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 int Ball::getX() {
     return ball_.getPosition().x;
 }
+
 int Ball::getY() {
     return ball_.getPosition().y;
 }
+
 int Ball::getLeft() {
     return getX() - ball_.getRadius();
 }
+
 int Ball::getRight() {
     return getX() + ball_.getRadius();
 }
+
 int Ball::getTop() {
     return getY() - ball_.getRadius();
 }
+
 int Ball::getBottom() {
     return getY() + ball_.getRadius();
+}
+
+float Ball::getVelocityX() {
+    return velocity_.x;
+};
+
+float Ball::getVelocityY() {
+    return velocity_.y;
+};
+
+void Ball::reverseVelocityX() {
+    velocity_.x *= -1;
+};
+
+void Ball::reverseVelocityY() {
+    velocity_.y *= -1;
+};
+
+void Ball::setVelocityX(float xSpeed) {
+    velocity_.x = xSpeed;
+};
+
+void Ball::setVelocityY(float ySpeed) {
+    velocity_.y = ySpeed;
+};
+
+const sf::CircleShape& Ball::getShape() {
+    return ball_;
 }
