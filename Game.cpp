@@ -119,10 +119,7 @@ void Game::testCollision(std::shared_ptr<Ball>& ballPtr, std::vector<std::shared
 }
 
 void Game::ShowMenu() {
-    // MainMenu menu(window_.getSize().x, window_.getSize().y);
-    // sf::RenderWindow window(sf::VideoMode(600, 600), "SFML WORK!");
-
-    MainMenu menu(window_.getSize().x, window_.getSize().y);
+    MainMenu menu;
 
     while (window_.isOpen()) {
         sf::Event event;
@@ -134,39 +131,29 @@ void Game::ShowMenu() {
                 case sf::Keyboard::Up:
                     menu.MoveUp();
                     break;
-
                 case sf::Keyboard::Down:
                     menu.MoveDown();
                     break;
-
                 case sf::Keyboard::Return:
-                    switch (menu.GetPressedItem()) {
+                    switch (menu.getCurrentIndex()) {
                     case 0:
-                        std::cout << "Play button has been pressed" << std::endl;
                         init();
                         run();
                         break;
                     case 1:
                         window_.close();
-                        std::cout << "Option button has been pressed" << std::endl;
                         break;
                     }
-
                     break;
                 }
-
                 break;
             case sf::Event::Closed:
                 window_.close();
-
                 break;
             }
         }
-
         window_.clear();
-
-        menu.draw(window_);
-
+        menu.drawMenu(window_);
         window_.display();
     }
 }

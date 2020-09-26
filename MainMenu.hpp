@@ -5,18 +5,16 @@
 
 class MainMenu {
 public:
-    MainMenu(float width, float height);
+    MainMenu();
     ~MainMenu();
 
-    void draw(sf::RenderWindow& window);
+    void drawMenu(sf::RenderWindow& window);
     void MoveUp();
     void MoveDown();
-    int GetPressedItem() {
-        return selectedItemIndex;
-    }
+    int getCurrentIndex();
 
 private:
-    int selectedItemIndex;
+    int itemIndex;
     sf::Font font;
-    sf::Text menu[2];
+    sf::Text menu[menuItems];
 };
