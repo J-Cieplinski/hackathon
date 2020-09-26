@@ -14,7 +14,12 @@ public:
     int getCurrentIndex();
 
 private:
-    int itemIndex;
-    sf::Font font;
-    sf::Text menu[menuItems];
+    int itemIndex_;
+    sf::Font font_;
+    sf::Text title_;
+    sf::RectangleShape menu_[menuItems];
+    sf::RectangleShape background_;
+    sf::Texture menuStart_;
+    sf::Texture menuExit_;
+    sf::Texture backgroundTexture_;
 };
