@@ -15,6 +15,8 @@ public:
 
 private:
     sf::RectangleShape brick_;
+    sf::Texture brickTexture_;
+
     sf::Vector2f position_{};
     sf::Vector2f size_{blockWidth, blockHeight};
 };

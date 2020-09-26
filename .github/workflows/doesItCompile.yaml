@@ -1,0 +1,17 @@
+name: HackathonArkanoid
+
+on: [push, pull_request]
+
+jobs:
+  CheckCompile:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code
+      uses: actions/checkout@master
+    - name: mkdir/build
+      run: mkdir build
+    - name: Compile
+      working-directory: build
+      run: |
+        cmake ..
+        make

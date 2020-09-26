@@ -26,5 +26,7 @@ public:
 
 private:
     sf::CircleShape ball_;
+    sf::Texture ballTexture_;
+
     sf::Vector2f velocity_{ballSpeed, -ballSpeed};
 };
