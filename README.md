@@ -12,6 +12,7 @@ Pawellos - https://github.com/pawellos/
 
 ### Gameplay:
 [![](http://img.youtube.com/vi/DLB1VKNwycI/0.jpg)](http://www.youtube.com/watch?v=DLB1VKNwycI "Gameplay on YouTube")
+
 [Gameplay YouTube](https://youtu.be/DLB1VKNwycI)
 
 ### Screenshots:
