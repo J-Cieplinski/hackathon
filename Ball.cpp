@@ -1,10 +1,11 @@
 #include "Ball.hpp"
 
 Ball::Ball() {
+    ballTexture_.loadFromFile("../assets/Ball.png");
     ball_.setPosition(windowWidth / 2, windowHeight / 2);
     ball_.setRadius(ballRadius);
-    ball_.setFillColor(sf::Color::Red);
     ball_.setOrigin(10, 10);
+    ball_.setTexture(&ballTexture_);
 }
 
 void Ball::move() {
