@@ -61,6 +61,10 @@ void Game::update() {
     std::for_each(drawObjects_.cbegin(), drawObjects_.cend(), [](const auto& obj) { obj->update(); });
     testCollision(ball_, paddle_);
     testCollision(ball_, bricks);
+    if (ball_.get()->getBottom() < 0) {
+        // ball_.get()->setPosition(sf::Vector2f(windowWidth / 2, windowHeight / 2));
+        ball_.get()->getShape().setFillColor(sf::Color::White);
+    }
 }
 
 void Game::init() {
@@ -70,7 +74,7 @@ void Game::init() {
                                                      ((row + 1) * (blockHeight + blocksSpacing)) + spaceFromTop));
         }
     }
-  
+
     drawObjects_.push_back(background_);
     addDrawObject(paddle_);
     addDrawObject(ball_);

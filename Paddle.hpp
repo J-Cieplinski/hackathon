@@ -15,6 +15,8 @@ public:
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
     void move();
     int getX();
+    float getLeft();
+    float getRight();
     const sf::RectangleShape& getShape();
 
 private:
@@ -22,9 +24,7 @@ private:
     void moveRight();
 
     sf::RectangleShape paddle_;
-    sf::Vector2f leftVelocity_{-paddleSpeed, 0.f};
-    sf::Vector2f rightVelocity_{paddleSpeed, 0.f};
-
+    sf::Vector2f velocity_{0, 0};
     sf::Vector2f paddleSize_{120.f, 15.f};
     sf::Vector2f paddlePosition_{windowWidth / 2 - paddleSize_.x / 2, windowHeight - paddleSize_.y};
 };

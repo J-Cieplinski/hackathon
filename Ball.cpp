@@ -4,7 +4,7 @@ Ball::Ball() {
     ball_.setPosition(windowWidth / 2, windowHeight / 2);
     ball_.setRadius(ballRadius);
     ball_.setFillColor(sf::Color::Red);
-    ball_.setOrigin(ballRadius, ballRadius);
+    ball_.setOrigin(10, 10);
 }
 
 void Ball::move() {
@@ -80,6 +80,6 @@ void Ball::setVelocityY(float ySpeed) {
     velocity_.y = ySpeed;
 };
 
-const sf::CircleShape& Ball::getShape() {
+sf::CircleShape& Ball::getShape() {
     return ball_;
 }
