@@ -7,7 +7,7 @@ constexpr size_t windowHeight = 720;
 constexpr float ballSpeed{8.f};
 constexpr int ballRadius{10};
 
-constexpr float paddleSpeed{7.f};
+constexpr float paddleSpeed{9.f};
 
 constexpr float blockWidth{83.f};
 constexpr float blockHeight{30.f};

@@ -18,3 +18,14 @@ void Brick::draw(sf::RenderTarget& target, sf::RenderStates states) const {
     states.transform *= getTransform();
     target.draw(brick_, states);
 }
+
+sf::RectangleShape Brick::getShape() {
+    return brick_;
+}
+
+float Brick::getLeft() {
+    return brick_.getPosition().x - brick_.getSize().x / 2.f;
+}
+float Brick::getRight() {
+    return brick_.getPosition().x + brick_.getSize().x / 2.f;
+}
