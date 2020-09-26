@@ -16,14 +16,13 @@ public:
     void run();
     void init();
     void removeDestroyedBricks();
-    void addDrawObject(const std::shared_ptr<Entity>& drawable);  // for now, maybe not pointer but pure reference?
+    void addDrawObject(const std::shared_ptr<Entity>& drawable);
     void testCollision(std::shared_ptr<Ball>& ballPtr, std::shared_ptr<Paddle>& paddlePtr);
     void testCollision(std::shared_ptr<Ball>& ballPtr, std::vector<std::shared_ptr<Brick>>& bricks);
 
 private:
     sf::RenderWindow window_;
     std::vector<std::shared_ptr<Entity>> drawObjects_{};
-    Background a;
     std::shared_ptr<Background> background_;
 
     void render();
