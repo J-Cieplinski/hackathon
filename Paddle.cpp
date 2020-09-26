@@ -2,9 +2,10 @@
 #include "Headers.hpp"
 
 Paddle::Paddle() {
+    paddleTexture_.loadFromFile("../assets/Paddle.png");
     paddle_.setSize(paddleSize_);
     paddle_.setPosition(paddlePosition_);
-    paddle_.setFillColor(sf::Color::Red);
+    paddle_.setTexture(&paddleTexture_);
     paddle_.setOrigin(paddleSize_.x / 2.f, paddleSize_.y / 2.f);
 }
 
