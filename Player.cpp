@@ -2,7 +2,7 @@
 #include <iostream>
 
 Player::Player(int lives, int points) : lives_(lives), points_(points) {
-    if (!font_.loadFromFile("../assets/fonts/PWStrokes.ttf")) {
+    if (!font_.loadFromFile("../assets/fonts/Retronoid.ttf")) {
         std::cout << "cant read font \n";
     }
     text_.setFont(font_);
