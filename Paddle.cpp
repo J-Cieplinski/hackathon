@@ -53,6 +53,6 @@ int Paddle::getX() {
     return paddle_.getPosition().x;
 }
 
-sf::RectangleShape Paddle::getShape() {
+const sf::RectangleShape& Paddle::getShape() {
     return paddle_;
 }

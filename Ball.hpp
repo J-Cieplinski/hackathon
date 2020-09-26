@@ -22,7 +22,7 @@ public:
     void setVelocityY(float ySpeed);
     void reverseVelocityX();
     void reverseVelocityY();
-    sf::CircleShape getShape();
+    const sf::CircleShape& getShape();
 
 private:
     sf::CircleShape ball_;

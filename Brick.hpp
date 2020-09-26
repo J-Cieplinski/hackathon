@@ -9,7 +9,7 @@ public:
     void destroyBrick();
     void update() override;
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
-    sf::RectangleShape getShape();
+    const sf::RectangleShape& getShape();
     float getLeft();
     float getRight();
 

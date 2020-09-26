@@ -80,6 +80,6 @@ void Ball::setVelocityY(float ySpeed) {
     velocity_.y = ySpeed;
 };
 
-sf::CircleShape Ball::getShape() {
+const sf::CircleShape& Ball::getShape() {
     return ball_;
 }

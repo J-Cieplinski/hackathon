@@ -19,7 +19,7 @@ void Brick::draw(sf::RenderTarget& target, sf::RenderStates states) const {
     target.draw(brick_, states);
 }
 
-sf::RectangleShape Brick::getShape() {
+const sf::RectangleShape& Brick::getShape() {
     return brick_;
 }
 
