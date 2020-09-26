@@ -6,6 +6,8 @@ jobs:
   CheckCompile:
     runs-on: ubuntu-latest
     steps:
+    - name: Install sound lib
+      run: sudo apt-get update -y && sudo apt-get install -y flac && sudo apt-get install -y libopenal1 && sudo apt-get install -y libvorbisenc2
     - name: Check out code
       uses: actions/checkout@master
     - name: mkdir/build
