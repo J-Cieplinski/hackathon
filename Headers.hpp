@@ -16,6 +16,8 @@ constexpr int spaceFromTop{static_cast<int>(blockHeight)};
 constexpr int blocksCol{windowWidth / static_cast<int>(blockWidth) - 1};
 constexpr int blocksRow{5};
 
+#include "Entity.hpp"
+#include "Background.hpp"
 #include "Ball.hpp"
 #include "Brick.hpp"
 #include "Game.hpp"

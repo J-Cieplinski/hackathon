@@ -6,6 +6,7 @@
 Game::Game() : window_(sf::VideoMode(windowWidth, windowHeight), "HackathonArkanoid") {
     window_.clear();
     window_.setFramerateLimit(60);
+    background_ = std::make_shared<Background>();
     paddle_ = std::make_shared<Paddle>();
     ball_ = std::make_shared<Ball>();
 }
@@ -69,7 +70,8 @@ void Game::init() {
                                                      ((row + 1) * (blockHeight + blocksSpacing)) + spaceFromTop));
         }
     }
-
+  
+    drawObjects_.push_back(background_);
     addDrawObject(paddle_);
     addDrawObject(ball_);
     for (auto& brick : bricks) {
