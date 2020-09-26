@@ -1,9 +1,10 @@
 #include "Ball.hpp"
 
 Ball::Ball() {
+    ballTexture_.loadFromFile("../assets/Ball.png");
     ball_.setPosition(windowWidth / 2, windowHeight / 2);
     ball_.setRadius(ballRadius);
-    ball_.setFillColor(sf::Color::Red);
+    ball_.setTexture(&ballTexture_);
     ball_.setOrigin(ballRadius, ballRadius);
 }
 
@@ -12,7 +13,7 @@ void Ball::move() {
 
     if (getLeft() < sidesBoundries) {
         reverseVelocityX();
-    } else if (getRight() > windowWidth -sidesBoundries) {
+    } else if (getRight() > windowWidth - sidesBoundries) {
         reverseVelocityX();
     }
 

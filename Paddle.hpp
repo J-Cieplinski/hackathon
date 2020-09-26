@@ -22,6 +22,7 @@ private:
     void moveRight();
 
     sf::RectangleShape paddle_;
+    sf::Texture paddleTexture_;
     sf::Vector2f leftVelocity_{-paddleSpeed, 0.f};
     sf::Vector2f rightVelocity_{paddleSpeed, 0.f};
 
