@@ -8,22 +8,22 @@ Ball::Ball() {
 }
 
 void Ball::move() {
-    ball_.move(velocity_);  // something along those lines to move. Changing velocity vector (direction basically)
-                            // through collision etc
-    if (getLeft() < 0) {
+    ball_.move(velocity_);
+
+    if (getLeft() < sidesBoundries) {
         reverseVelocityX();
-    } else if (getRight() > windowWidth) {
+    } else if (getRight() > windowWidth -sidesBoundries) {
         reverseVelocityX();
     }
 
-    if (getTop() < 0) {
+    if (getTop() < topBoundry) {
         reverseVelocityY();
     } else if (getBottom() > windowHeight) {
         reverseVelocityY();
     }
 }
 
-void Ball::update() {  // everything that changes in regards to paddle, moving, changing color, etc
+void Ball::update() {
     move();
 }
 

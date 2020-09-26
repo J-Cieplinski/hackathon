@@ -53,7 +53,7 @@ void Game::removeDestroyedBricks() {
         std::remove_if(drawObjects_.begin(), drawObjects_.end(), [](const auto& el) { return el->isDestroyed_; }),
         drawObjects_.end());  // This doesn't free memory used by those bricks
     bricks.erase(std::remove_if(bricks.begin(), bricks.end(), [](const auto& el) { return el->isDestroyed_; }),
-                 bricks.end());  // This doesn't free memory used by those bricks
+                 bricks.end());  // This does
 }
 
 void Game::update() {
