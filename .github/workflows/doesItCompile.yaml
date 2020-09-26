@@ -3,7 +3,7 @@ name: HackathonArkanoid
 on: [push, pull_request]
 
 jobs:
-  Check if compiles:
+  CheckCompile:
     runs-on: ubuntu-latest
     steps:
     - name: Check out code
