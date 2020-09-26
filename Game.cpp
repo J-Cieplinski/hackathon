@@ -53,7 +53,7 @@ void Game::removeDestroyedBricks() {
         std::remove_if(drawObjects_.begin(), drawObjects_.end(), [](const auto& el) { return el->isDestroyed_; }),
         drawObjects_.end());  // This doesn't free memory used by those bricks
     bricks.erase(std::remove_if(bricks.begin(), bricks.end(), [](const auto& el) { return el->isDestroyed_; }),
-                 bricks.end());  // This does
+                 bricks.end());  // This doesn't free memory used by those bricks
 }
 
 void Game::update() {
@@ -61,8 +61,9 @@ void Game::update() {
     std::for_each(drawObjects_.cbegin(), drawObjects_.cend(), [](const auto& obj) { obj->update(); });
     testCollision(ball_, paddle_);
     testCollision(ball_, bricks);
-    if (ball_.get()->getBottom() < 0) {
-        // ball_.get()->setPosition(sf::Vector2f(windowWidth / 2, windowHeight / 2));
+    if (ball_.get()->getBottom() >= windowHeight) {
+        ball_.get()->setPosition(sf::Vector2f(0, -100));
+
         ball_.get()->getShape().setFillColor(sf::Color::White);
     }
 }
