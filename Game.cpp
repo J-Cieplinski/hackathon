@@ -9,6 +9,7 @@ Game::Game() : window_(sf::VideoMode(windowWidth, windowHeight), "HackathonArkan
     background_ = std::make_shared<Background>();
     paddle_ = std::make_shared<Paddle>();
     ball_ = std::make_shared<Ball>();
+    player_ = std::make_shared<Player>(playerLives, playerPoints);
 
     buffer_.loadFromFile("../assets/Arkanoid SFX (1).wav");
     sound_.setBuffer(buffer_);
@@ -77,6 +78,7 @@ void Game::init() {
     drawObjects_.push_back(background_);
     addDrawObject(paddle_);
     addDrawObject(ball_);
+    addDrawObject(player_);
     for (auto& brick : bricks) {
         addDrawObject(brick);
     }
@@ -103,6 +105,7 @@ void Game::testCollision(std::shared_ptr<Ball>& ballPtr, std::vector<std::shared
         if (ball->getShape().getGlobalBounds().intersects(brick->getShape().getGlobalBounds())) {
             sound_.play();
             brick->destroyBrick();
+            player_->addPoints();
 
             if (ball->getX() < brick->getLeft() || ball->getX() > brick->getRight()) {
                 ball->reverseVelocityX();

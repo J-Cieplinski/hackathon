@@ -14,13 +14,17 @@ constexpr float paddleSpeed{9.f};
 constexpr float blockWidth{83.f};
 constexpr float blockHeight{30.f};
 constexpr int blocksSpacing{2};
-constexpr int spaceFromTop{static_cast<int>(blockHeight)};
+constexpr int spaceFromTop{static_cast<int>(blockHeight + 10)};
 constexpr int blocksCol{windowWidth / static_cast<int>(blockWidth) - 1};
 constexpr int blocksRow{5};
 
-#include "Entity.hpp"
+constexpr int playerLives = 3;
+constexpr int playerPoints = 0;
+
 #include "Background.hpp"
 #include "Ball.hpp"
 #include "Brick.hpp"
+#include "Entity.hpp"
 #include "Game.hpp"
 #include "Paddle.hpp"
+#include "Player.hpp"

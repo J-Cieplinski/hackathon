@@ -11,6 +11,7 @@
 class Ball;
 class Paddle;
 class Brick;
+class Player;
 
 class Game {
 public:
@@ -36,4 +37,5 @@ private:
     std::shared_ptr<Ball> ball_;
     std::shared_ptr<Paddle> paddle_;
     std::vector<std::shared_ptr<Brick>> bricks;
+    std::shared_ptr<Player> player_;
 };

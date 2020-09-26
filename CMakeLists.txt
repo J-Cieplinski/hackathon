@@ -4,7 +4,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(HackathonArkanoid)
 
-set(SRC_FILES main.cpp Ball.cpp Brick.cpp Game.cpp Paddle.cpp Background.cpp)
+set(SRC_FILES main.cpp Ball.cpp Brick.cpp Game.cpp Paddle.cpp Background.cpp Player.cpp)
 set(SFML_DIR "SFML-2.5.1/lib/cmake/SFML")
 
 add_executable(${PROJECT_NAME} ${SRC_FILES})
