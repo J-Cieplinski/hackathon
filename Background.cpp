@@ -5,7 +5,7 @@
 Background::Background() {
     background_.setSize(sf::Vector2f(windowWidth, windowHeight));
 
-    if (backgroundTexture.loadFromFile("../assets/background.png")) {
+    if (backgroundTexture.loadFromFile("../assets/textures/background.png")) {
         background_.setTexture(&backgroundTexture);
     }
 }

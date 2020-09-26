@@ -1,6 +1,8 @@
 #pragma once
 
+#include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+
 #include "Entity.hpp"
 #include "Headers.hpp"
 
@@ -27,6 +29,8 @@ public:
 private:
     sf::CircleShape ball_;
     sf::Texture ballTexture_;
+    sf::SoundBuffer ballDestruction_;
+    sf::Sound sound_;
 
     sf::Vector2f velocity_{ballSpeed, -ballSpeed};
 };

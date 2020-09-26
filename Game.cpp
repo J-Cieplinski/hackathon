@@ -11,8 +11,10 @@ Game::Game() : window_(sf::VideoMode(windowWidth, windowHeight), "HackathonArkan
     ball_ = std::make_shared<Ball>();
     player_ = std::make_shared<Player>(playerLives, playerPoints);
 
-    buffer_.loadFromFile("../assets/Arkanoid SFX (1).wav");
-    sound_.setBuffer(buffer_);
+    bounceBuffer_.loadFromFile("../assets/sounds/bounce.wav");
+    bounceSound_.setBuffer(bounceBuffer_);
+
+    brickDestroyBuffer_.loadFromFile("../assets/sounds/brickDestruction.wav");
 }
 
 void Game::run() {
@@ -71,7 +73,8 @@ void Game::init() {
     for (int col = 0; col < blocksCol; ++col) {
         for (int row = 0; row < blocksRow; ++row) {
             bricks.push_back(std::make_shared<Brick>(((col + 1) * (blockWidth + blocksSpacing)) + blocksSpacing,
-                                                     ((row + 1) * (blockHeight + blocksSpacing)) + spaceFromTop));
+                                                     ((row + 1) * (blockHeight + blocksSpacing)) + spaceFromTop,
+                                                     brickDestroyBuffer_));
         }
     }
 
@@ -88,7 +91,7 @@ void Game::testCollision(std::shared_ptr<Ball>& ballPtr, std::shared_ptr<Paddle>
     auto ball = ball_.get();
     auto paddle = paddle_.get();
     if (ball->getShape().getGlobalBounds().intersects(paddle->getShape().getGlobalBounds())) {
-        sound_.play();
+        bounceSound_.play();
         ball->reverseVelocityY();
         if (ball_->getX() < paddle->getX()) {
             ball->setVelocityX(-ballSpeed);
@@ -103,7 +106,6 @@ void Game::testCollision(std::shared_ptr<Ball>& ballPtr, std::vector<std::shared
         auto ball = ball_.get();
         auto brick = element.get();
         if (ball->getShape().getGlobalBounds().intersects(brick->getShape().getGlobalBounds())) {
-            sound_.play();
             brick->destroyBrick();
             player_->addPoints();
 

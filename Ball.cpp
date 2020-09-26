@@ -1,11 +1,14 @@
 #include "Ball.hpp"
+#include <chrono>
+#include <thread>
 
 Ball::Ball() {
-    ballTexture_.loadFromFile("../assets/Ball.png");
+    ballTexture_.loadFromFile("../assets/textures/Ball.png");
     ball_.setPosition(windowWidth / 2, windowHeight / 2);
     ball_.setRadius(ballRadius);
     ball_.setOrigin(10, 10);
     ball_.setTexture(&ballTexture_);
+    ballDestruction_.loadFromFile("../assets/sounds/ballDestruction.wav");
 }
 
 void Ball::move() {
@@ -20,6 +23,9 @@ void Ball::move() {
     if (getTop() < topBoundry) {
         reverseVelocityY();
     } else if (getBottom() > windowHeight) {
+        sound_.play();
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+
         ball_.setPosition(windowWidth / 2, windowHeight / 2);
         setVelocityX(ballSpeed);
         setVelocityY(-ballSpeed);
