@@ -72,6 +72,14 @@ void Ball::reverseVelocityY() {
     velocity_.y *= -1;
 };
 
+void Ball::setVelocityX(float xSpeed) {
+    velocity_.x = xSpeed;
+};
+
+void Ball::setVelocityY(float ySpeed) {
+    velocity_.y = ySpeed;
+};
+
 sf::CircleShape Ball::getShape() {
     return ball_;
 }

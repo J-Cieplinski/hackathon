@@ -18,6 +18,8 @@ public:
     int getBottom();
     float getVelocityX();
     float getVelocityY();
+    void setVelocityX(float xSpeed);
+    void setVelocityY(float ySpeed);
     void reverseVelocityX();
     void reverseVelocityY();
     sf::CircleShape getShape();

@@ -1,5 +1,6 @@
 #include "Game.hpp"
 #include <algorithm>
+#include <iostream>
 
 Game::Game() : window_(sf::VideoMode(windowWidth, windowHeight), "HackathonArkanoid") {
     window_.clear();
@@ -59,10 +60,10 @@ void Game::update() {
 }
 
 void Game::init() {
-    for (int col = 0; col < blocksCol; col++) {
-        for (int row = 0; row < blocksRow; row++) {
-            bricks.push_back(std::make_shared<Brick>((col * (blockWidth + blocksSpacing)) + blocksSpacing,
-                                                     (row * (blockHeight + blocksSpacing)) + spaceFromTop));
+    for (int col = 0; col < blocksCol; ++col) {
+        for (int row = 0; row < blocksRow; ++row) {
+            bricks.push_back(std::make_shared<Brick>(((col + 1) * (blockWidth + blocksSpacing)) + blocksSpacing,
+                                                     ((row + 1) * (blockHeight + blocksSpacing)) + spaceFromTop));
         }
     }
 
@@ -78,11 +79,10 @@ void Game::testCollision(std::shared_ptr<Ball>& ballPtr, std::shared_ptr<Paddle>
     auto paddle = paddle_.get();
     if (ball->getShape().getGlobalBounds().intersects(paddle->getShape().getGlobalBounds())) {
         ball->reverseVelocityY();
-
-        if (ball->getVelocityX() < 0 && ball->getX() > paddle->getX()) {
-            ball->reverseVelocityX();
-        } else if (ball->getVelocityX() > 0 && ball->getX() < paddle->getX()) {
-            ball->reverseVelocityX();
+        if (ball_->getX() < paddle->getX()) {
+            ball->setVelocityX(-ballSpeed);
+        } else {
+            ball->setVelocityX(ballSpeed);
         }
     }
 }
@@ -94,10 +94,10 @@ void Game::testCollision(std::shared_ptr<Ball>& ballPtr, std::vector<std::shared
         if (ball->getShape().getGlobalBounds().intersects(brick->getShape().getGlobalBounds())) {
             brick->destroyBrick();
 
-            if (ball->getX() > brick->getLeft() && ball->getX() < brick->getRight()) {
-                ball->reverseVelocityY();
-            } else {
+            if (ball->getX() < brick->getLeft() || ball->getX() > brick->getRight()) {
                 ball->reverseVelocityX();
+            } else {
+                ball->reverseVelocityY();
             }
         }
     }

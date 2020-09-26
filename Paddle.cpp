@@ -5,6 +5,7 @@ Paddle::Paddle() {
     paddle_.setSize(paddleSize_);
     paddle_.setPosition(paddlePosition_);
     paddle_.setFillColor(sf::Color::Red);
+    paddle_.setOrigin(paddleSize_.x / 2.f, paddleSize_.y / 2.f);
 }
 
 void Paddle::moveLeft() {

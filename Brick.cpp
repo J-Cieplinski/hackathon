@@ -5,6 +5,7 @@ Brick::Brick(float pos_x, float pos_y) {
     brick_.setSize(size_);
     brick_.setPosition(pos_x, pos_y);
     brick_.setFillColor(sf::Color::Blue);
+    brick_.setOrigin(blockWidth / 2.f, blockHeight / 2.f);
 }
 
 void Brick::update() {  // everything that changes in regards to brick. Destroying, changing color etc.
