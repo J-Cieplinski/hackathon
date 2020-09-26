@@ -9,40 +9,20 @@ Paddle::Paddle() {
     paddle_.setOrigin(paddleSize_.x / 2.f, paddleSize_.y / 2.f);
 }
 
-void Paddle::moveLeft() {
-    auto positionAfterMovement = paddlePosition_ + leftVelocity_;
-
-    if (positionAfterMovement.x < 0) {
-        paddlePosition_.x = 0;
-    } else {
-        paddlePosition_ += leftVelocity_;
-    }
-    paddle_.setPosition(paddlePosition_);
-}
-
-void Paddle::moveRight() {
-    auto positionAfterMovement = paddlePosition_ + rightVelocity_ + paddleSize_;
-
-    if (positionAfterMovement.x > windowWidth) {
-        paddlePosition_.x = windowWidth - paddleSize_.x;
-    } else {
-        paddlePosition_ += rightVelocity_;
-    }
-
-    paddle_.setPosition(paddlePosition_);
-}
-
 void Paddle::move() {
-    if (sf::Keyboard::isKeyPressed(Keys::left)) {
-        moveLeft();
-    } else if (sf::Keyboard::isKeyPressed(Keys::right)) {
-        moveRight();
+    paddle_.move(velocity_);  // something along those lines to move. Changing velocity vector (direction basically)
+                              // through collision etc
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left) && getLeft() > sidesBoundries) {
+        velocity_.x = -paddleSpeed;
+    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right) && getRight() < windowWidth - sidesBoundries) {
+        velocity_.x = paddleSpeed;
+    } else {
+        velocity_.x = 0;
     }
 }
 
 void Paddle::update() {  // everything that changes in regards to paddle, moving, changing color, etc
     move();
-    paddlePosition_ = paddle_.getPosition();
 }
 
 void Paddle::draw(sf::RenderTarget& target, sf::RenderStates states) const {
@@ -52,6 +32,13 @@ void Paddle::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 
 int Paddle::getX() {
     return paddle_.getPosition().x;
+}
+
+float Paddle::getLeft() {
+    return getX() - paddle_.getSize().x / 2.f;
+}
+float Paddle::getRight() {
+    return getX() + paddle_.getSize().x / 2.f;
 }
 
 const sf::RectangleShape& Paddle::getShape() {

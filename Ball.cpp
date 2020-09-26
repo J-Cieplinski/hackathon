@@ -4,8 +4,8 @@ Ball::Ball() {
     ballTexture_.loadFromFile("../assets/Ball.png");
     ball_.setPosition(windowWidth / 2, windowHeight / 2);
     ball_.setRadius(ballRadius);
+    ball_.setOrigin(10, 10);
     ball_.setTexture(&ballTexture_);
-    ball_.setOrigin(ballRadius, ballRadius);
 }
 
 void Ball::move() {
@@ -20,7 +20,9 @@ void Ball::move() {
     if (getTop() < topBoundry) {
         reverseVelocityY();
     } else if (getBottom() > windowHeight) {
-        reverseVelocityY();
+        ball_.setPosition(windowWidth / 2, windowHeight / 2);
+        setVelocityX(ballSpeed);
+        setVelocityY(-ballSpeed);
     }
 }
 
