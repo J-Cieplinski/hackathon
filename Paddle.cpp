@@ -5,6 +5,7 @@ Paddle::Paddle() {
     paddle_.setSize(paddleSize_);
     paddle_.setPosition(paddlePosition_);
     paddle_.setFillColor(sf::Color::Red);
+    paddle_.setOrigin(paddleSize_.x / 2.f, paddleSize_.y / 2.f);
 }
 
 void Paddle::moveLeft() {
@@ -38,7 +39,7 @@ void Paddle::move() {
     }
 }
 
-void Paddle::update() {  //everything that changes in regards to paddle, moving, changing color, etc
+void Paddle::update() {  // everything that changes in regards to paddle, moving, changing color, etc
     move();
     paddlePosition_ = paddle_.getPosition();
 }
@@ -46,4 +47,12 @@ void Paddle::update() {  //everything that changes in regards to paddle, moving,
 void Paddle::draw(sf::RenderTarget& target, sf::RenderStates states) const {
     states.transform *= getTransform();
     target.draw(paddle_, states);
+}
+
+int Paddle::getX() {
+    return paddle_.getPosition().x;
+}
+
+const sf::RectangleShape& Paddle::getShape() {
+    return paddle_;
 }

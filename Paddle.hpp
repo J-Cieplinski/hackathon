@@ -14,6 +14,8 @@ public:
     void update() override;
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
     void move();
+    int getX();
+    const sf::RectangleShape& getShape();
 
 private:
     void moveLeft();
