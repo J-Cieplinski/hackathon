@@ -8,8 +8,7 @@ Brick::Brick(float pos_x, float pos_y) {
     brick_.setOrigin(blockWidth / 2.f, blockHeight / 2.f);
 }
 
-void Brick::update() {  // everything that changes in regards to brick. Destroying, changing color etc.
-}
+void Brick::update() {}  // everything that changes in regards to brick. Destroying, changing color etc.
 
 void Brick::destroyBrick() {
     isDestroyed_ = true;
