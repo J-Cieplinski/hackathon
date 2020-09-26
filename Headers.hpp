@@ -3,6 +3,8 @@
 
 constexpr size_t windowWidth = 1280;
 constexpr size_t windowHeight = 720;
+constexpr size_t sidesBoundries = windowWidth * 0.033;
+constexpr size_t topBoundry = windowHeight * 0.03;
 
 constexpr float ballSpeed{8.f};
 constexpr int ballRadius{10};
