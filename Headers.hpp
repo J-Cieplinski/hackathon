@@ -9,7 +9,7 @@ constexpr size_t topBoundry = windowHeight * 0.03;
 constexpr float ballSpeed{8.f};
 constexpr int ballRadius{10};
 
-constexpr float paddleSpeed{9.f};
+constexpr float paddleSpeed{10.f};
 
 constexpr float blockWidth{83.f};
 constexpr float blockHeight{30.f};
@@ -21,6 +21,7 @@ constexpr int blocksRow{5};
 constexpr int playerLives = 3;
 constexpr int playerPoints = 0;
 
+constexpr int menuItems = 2;
 constexpr size_t gameOverX = 500;
 constexpr size_t gameOverY = 80;
 
@@ -30,5 +31,6 @@ constexpr size_t gameOverY = 80;
 #include "Entity.hpp"
 #include "Game.hpp"
 #include "GameOver.hpp"
+#include "MainMenu.hpp"
 #include "Paddle.hpp"
 #include "Player.hpp"

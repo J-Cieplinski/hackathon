@@ -1,8 +1,9 @@
+#include <chrono>
+#include <thread>
 #include "Headers.hpp"
 
 int main() {
     Game game;
-    game.init();
-    game.run();
+    game.ShowMenu();
     return 0;
 }

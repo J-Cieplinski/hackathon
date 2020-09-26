@@ -21,8 +21,7 @@ void Game::run() {
         processWindowEvents();
         if (!isGameOver_) {
             update();
-        }
-        else {
+        } else {
             gameOver();
         }
         render();
@@ -68,11 +67,10 @@ void Game::removeDestroyedBricks() {
 }
 
 void Game::update() {
-
-        removeDestroyedBricks();
-        std::for_each(drawObjects_.cbegin(), drawObjects_.cend(), [](const auto& obj) { obj->update(); });
-        testCollision(ball_, paddle_);
-        testCollision(ball_, bricks);
+    removeDestroyedBricks();
+    std::for_each(drawObjects_.cbegin(), drawObjects_.cend(), [](const auto& obj) { obj->update(); });
+    testCollision(ball_, paddle_);
+    testCollision(ball_, bricks);
     if (player_->getLives() <= 0) {
         isGameOver_ = true;
         addDrawObject(gameOver_);
@@ -82,8 +80,6 @@ void Game::update() {
 void Game::gameOver() {
     gameOver_->update();
 }
-
-
 
 void Game::init() {
     for (int col = 0; col < blocksCol; ++col) {
@@ -131,5 +127,45 @@ void Game::testCollision(std::shared_ptr<Ball>& ballPtr, std::vector<std::shared
                 ball->reverseVelocityY();
             }
         }
+    }
+}
+
+void Game::ShowMenu() {
+    MainMenu menu;
+
+    while (window_.isOpen()) {
+        sf::Event event;
+
+        while (window_.pollEvent(event)) {
+            switch (event.type) {
+            case sf::Event::KeyReleased:
+                switch (event.key.code) {
+                case sf::Keyboard::Up:
+                    menu.MoveUp();
+                    break;
+                case sf::Keyboard::Down:
+                    menu.MoveDown();
+                    break;
+                case sf::Keyboard::Return:
+                    switch (menu.getCurrentIndex()) {
+                    case 0:
+                        init();
+                        run();
+                        break;
+                    case 1:
+                        window_.close();
+                        break;
+                    }
+                    break;
+                }
+                break;
+            case sf::Event::Closed:
+                window_.close();
+                break;
+            }
+        }
+        window_.clear();
+        menu.drawMenu(window_);
+        window_.display();
     }
 }
