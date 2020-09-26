@@ -8,8 +8,8 @@ Game::Game() : window_(sf::VideoMode(windowWidth, windowHeight), "HackathonArkan
     window_.setFramerateLimit(60);
     background_ = std::make_shared<Background>();
     paddle_ = std::make_shared<Paddle>();
-    ball_ = std::make_shared<Ball>();
     player_ = std::make_shared<Player>(playerLives, playerPoints);
+    ball_ = std::make_shared<Ball>(player_);
 
     bounceBuffer_.loadFromFile("../assets/sounds/bounce.wav");
     bounceSound_.setBuffer(bounceBuffer_);
