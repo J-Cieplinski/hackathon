@@ -10,7 +10,14 @@ Kasperice - https://github.com/Kasperice/
 
 Pawellos - https://github.com/pawellos/
 
-### How to run
+### Screenshots:
+
+![](screenshots/screen1.png)
+![](screenshots/screen2.png)
+![](screenshots/screen3.png)
+
+
+### How to run:
 1. Clone repository to your computer.
 2. Create build directory inside:
    <code>mkdir build</code>
@@ -27,12 +34,7 @@ You don't have to include anything more, since we included all of the necessary 
 
 Game is prepared to use 1280x720px resolution, if you don't have such a display feel free to edit windowWidth and windowHeight in Headers.hpp file (both values are in px).
 
-### Rules
-
-
-
-
-### Contribution
+### Contribution:
 If you want to contribute to our project, you are welcome :) 
 Just fork this repository, do your changes, check if it works and open Pull Request. We will check it and probably merge ;)
 
