@@ -1,4 +1,4 @@
-## Coders School Hackathon Project
+## Coders School - Hackathon Project
 # ARKANOID
 Arkanoid is a 1986 block breaker arcade game developed and published by Taito.
 We decided to recreate this game for Coders School Hackathon. It was created using C++ and SFML (https://www.sfml-dev.org).
@@ -11,10 +11,12 @@ Kasperice - https://github.com/Kasperice/
 Pawellos - https://github.com/pawellos/
 
 ### Gameplay:
-link
+[![](http://img.youtube.com/vi/DLB1VKNwycI/0.jpg)](http://www.youtube.com/watch?v=DLB1VKNwycI "Gameplay on YouTube")
+[Gameplay YouTube](https://youtu.be/DLB1VKNwycI)
 
 ### Screenshots:
 
+![](screenshots/screen0.png)
 ![](screenshots/screen1.png)
 ![](screenshots/screen2.png)
 ![](screenshots/screen3.png)
