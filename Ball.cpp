@@ -20,6 +20,8 @@ void Ball::move() {
         reverseVelocityY();
     } else if (getBottom() > windowHeight) {
         ball_.setPosition(windowWidth / 2, windowHeight / 2);
+        setVelocityX(ballSpeed);
+        setVelocityY(-ballSpeed);
     }
 }
 
