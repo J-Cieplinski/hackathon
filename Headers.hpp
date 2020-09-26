@@ -16,6 +16,8 @@ constexpr int spaceFromTop{100};
 constexpr int blocksCol{15};
 constexpr int blocksRow{5};
 
+#include "Entity.hpp"
+#include "Background.hpp"
 #include "Ball.hpp"
 #include "Brick.hpp"
 #include "Game.hpp"

@@ -5,6 +5,8 @@ Game::Game()
     : window_(sf::VideoMode(windowWidth, windowHeight), "HackathonArkanoid") {
     window_.clear();
     window_.setFramerateLimit(60);
+    background_ = std::make_shared<Background>();
+    drawObjects_.push_back(background_);
 }
 
 void Game::run() {
