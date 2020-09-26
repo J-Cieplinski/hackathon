@@ -9,6 +9,7 @@ Ball::Ball() {
     ball_.setOrigin(10, 10);
     ball_.setTexture(&ballTexture_);
     ballDestruction_.loadFromFile("../assets/sounds/ballDestruction.wav");
+    sound_.setBuffer(ballDestruction_);
 }
 
 void Ball::move() {
