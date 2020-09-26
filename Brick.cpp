@@ -2,9 +2,10 @@
 #include "Headers.hpp"
 
 Brick::Brick(float pos_x, float pos_y) {
+    brickTexture_.loadFromFile("../assets/Brick.png");
     brick_.setSize(size_);
     brick_.setPosition(pos_x, pos_y);
-    brick_.setFillColor(sf::Color::Blue);
+    brick_.setTexture(&brickTexture_);
     brick_.setOrigin(blockWidth / 2.f, blockHeight / 2.f);
 }
 
