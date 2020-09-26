@@ -2,7 +2,7 @@
 #include <chrono>
 #include <thread>
 
-Ball::Ball() {
+Ball::Ball(std::shared_ptr<Player> player) : player_(player) {
     ballTexture_.loadFromFile("../assets/textures/Ball.png");
     ball_.setPosition(windowWidth / 2, windowHeight / 2);
     ball_.setRadius(ballRadius);
@@ -30,6 +30,7 @@ void Ball::move() {
         ball_.setPosition(windowWidth / 2, windowHeight / 2);
         setVelocityX(ballSpeed);
         setVelocityY(-ballSpeed);
+        player_->removeLives();
     }
 }
 
