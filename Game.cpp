@@ -10,7 +10,7 @@ Game::Game() : window_(sf::VideoMode(windowWidth, windowHeight), "HackathonArkan
     paddle_ = std::make_shared<Paddle>();
     ball_ = std::make_shared<Ball>();
 
-    buffer_.loadFromFile("../assets/Arkanoid SFX (1).wav");
+    buffer_.loadFromFile("../assets/sounds/Arkanoid SFX (1).wav");
     sound_.setBuffer(buffer_);
 }
 

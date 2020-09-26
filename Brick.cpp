@@ -2,7 +2,7 @@
 #include "Headers.hpp"
 
 Brick::Brick(float pos_x, float pos_y) {
-    brickTexture_.loadFromFile("../assets/Brick.png");
+    brickTexture_.loadFromFile("../assets/textures/Brick.png");
     brick_.setSize(size_);
     brick_.setPosition(pos_x, pos_y);
     brick_.setTexture(&brickTexture_);
