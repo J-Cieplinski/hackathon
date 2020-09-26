@@ -30,6 +30,7 @@ private:
     std::shared_ptr<Ball> ball_;
     std::shared_ptr<Paddle> paddle_;
     std::vector<std::shared_ptr<Brick>> bricks;
+    std::shared_ptr<Player> player_;
 
     sf::SoundBuffer bounceBuffer_;
     sf::SoundBuffer brickDestroyBuffer_;
@@ -38,8 +39,4 @@ private:
     void render();
     void update();
     void processWindowEvents();
-    std::shared_ptr<Ball> ball_;
-    std::shared_ptr<Paddle> paddle_;
-    std::vector<std::shared_ptr<Brick>> bricks;
-    std::shared_ptr<Player> player_;
 };
