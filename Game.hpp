@@ -3,6 +3,7 @@
 #include <memory>
 #include <vector>
 
+#include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include "Background.hpp"
 #include "Headers.hpp"
@@ -10,6 +11,7 @@
 class Ball;
 class Paddle;
 class Brick;
+
 class Game {
 public:
     Game();
@@ -24,6 +26,9 @@ private:
     sf::RenderWindow window_;
     std::vector<std::shared_ptr<Entity>> drawObjects_{};
     std::shared_ptr<Background> background_;
+
+    sf::SoundBuffer buffer_;
+    sf::Sound sound_;
 
     void render();
     void update();
