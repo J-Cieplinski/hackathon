@@ -26,14 +26,15 @@ private:
     sf::RenderWindow window_;
     std::vector<std::shared_ptr<Entity>> drawObjects_{};
     std::shared_ptr<Background> background_;
+    std::shared_ptr<Ball> ball_;
+    std::shared_ptr<Paddle> paddle_;
+    std::vector<std::shared_ptr<Brick>> bricks;
 
-    sf::SoundBuffer buffer_;
-    sf::Sound sound_;
+    sf::SoundBuffer bounceBuffer_;
+    sf::SoundBuffer brickDestroyBuffer_;
+    sf::Sound bounceSound_;
 
     void render();
     void update();
     void processWindowEvents();
-    std::shared_ptr<Ball> ball_;
-    std::shared_ptr<Paddle> paddle_;
-    std::vector<std::shared_ptr<Brick>> bricks;
 };
