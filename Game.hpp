@@ -12,6 +12,7 @@ class Ball;
 class Paddle;
 class Brick;
 class Player;
+class MainMenu;
 
 class Game {
 public:
@@ -22,6 +23,7 @@ public:
     void addDrawObject(const std::shared_ptr<Entity>& drawable);
     void testCollision(std::shared_ptr<Ball>& ballPtr, std::shared_ptr<Paddle>& paddlePtr);
     void testCollision(std::shared_ptr<Ball>& ballPtr, std::vector<std::shared_ptr<Brick>>& bricks);
+    void ShowMenu();
 
 private:
     sf::RenderWindow window_;
@@ -31,7 +33,6 @@ private:
     std::shared_ptr<Paddle> paddle_;
     std::vector<std::shared_ptr<Brick>> bricks;
     std::shared_ptr<Player> player_;
-
     sf::SoundBuffer bounceBuffer_;
     sf::SoundBuffer brickDestroyBuffer_;
     sf::Sound bounceSound_;

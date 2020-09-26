@@ -26,5 +26,6 @@ constexpr int playerPoints = 0;
 #include "Brick.hpp"
 #include "Entity.hpp"
 #include "Game.hpp"
+#include "MainMenu.hpp"
 #include "Paddle.hpp"
 #include "Player.hpp"

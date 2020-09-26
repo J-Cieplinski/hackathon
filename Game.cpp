@@ -23,7 +23,7 @@ void Game::run() {
         update();
         render();
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape)) {
-            break;
+            window_.close();
         }
     }
 }
@@ -115,5 +115,58 @@ void Game::testCollision(std::shared_ptr<Ball>& ballPtr, std::vector<std::shared
                 ball->reverseVelocityY();
             }
         }
+    }
+}
+
+void Game::ShowMenu() {
+    // MainMenu menu(window_.getSize().x, window_.getSize().y);
+    // sf::RenderWindow window(sf::VideoMode(600, 600), "SFML WORK!");
+
+    MainMenu menu(window_.getSize().x, window_.getSize().y);
+
+    while (window_.isOpen()) {
+        sf::Event event;
+
+        while (window_.pollEvent(event)) {
+            switch (event.type) {
+            case sf::Event::KeyReleased:
+                switch (event.key.code) {
+                case sf::Keyboard::Up:
+                    menu.MoveUp();
+                    break;
+
+                case sf::Keyboard::Down:
+                    menu.MoveDown();
+                    break;
+
+                case sf::Keyboard::Return:
+                    switch (menu.GetPressedItem()) {
+                    case 0:
+                        std::cout << "Play button has been pressed" << std::endl;
+                        init();
+                        run();
+                        break;
+                    case 1:
+                        window_.close();
+                        std::cout << "Option button has been pressed" << std::endl;
+                        break;
+                    }
+
+                    break;
+                }
+
+                break;
+            case sf::Event::Closed:
+                window_.close();
+
+                break;
+            }
+        }
+
+        window_.clear();
+
+        menu.draw(window_);
+
+        window_.display();
     }
 }
