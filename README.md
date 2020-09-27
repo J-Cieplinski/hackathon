@@ -40,6 +40,11 @@ You don't have to include anything more, since we included all of the necessary 
 
 Game is prepared to use 1280x720px resolution, if you don't have such a display feel free to edit windowWidth and windowHeight in Headers.hpp file (both values are in px).
 
+### Plans for the future:
+1. Add more levels
+2. Add some powerups
+3. Your ideas :)
+
 ### Contribution:
 If you want to contribute to our project, you are welcome :) 
 Just fork this repository, do your changes, check if it works and open Pull Request. We will check it and probably merge ;)
